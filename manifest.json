@@ -1,0 +1,71 @@
+{
+  "name": "Email",
+  "version": "0.1.0",
+  "size": {
+    "width": 5,
+    "height": 3
+  },
+  "mapping": [
+    {
+      "dataSetId": "fc16c95f-9b88-4fa7-b78e-b7da6671d0d5",
+      "alias": "currency",
+      "fields": []
+    }
+  ],
+  "collections":[
+    {
+      "name": "Payment_request",
+      "schema":{
+        "columns": [
+          { "name": "requester_name", "type": "STRING" },
+          { "name": "requester_id", "type": "STRING" },
+          { "name": "requested_name", "type": "STRING" },
+          { "name": "requested_id", "type": "STRING" },
+          { "name": "requested_email", "type": "STRING" },
+          { "name": "currency", "type": "STRING" },
+          { "name": "amount", "type": "DOUBLE" },
+          { "name": "due_date", "type": "STRING" },
+          { "name": "company_name", "type": "STRING" },
+          { "name": "account", "type": "STRING" }
+        ]
+      },
+      "syncEnabled":true
+
+    }
+
+  ],
+  "workflowMapping": [
+    {
+      "alias": "send_email",
+      "modelId": null,
+      "version": null,
+      "parameters": [
+        {
+          "name": "to",
+          "aliasedName": "to",
+          "type": "person",
+          "list": false,
+          "children": []
+        },
+        {
+          "name": "subject",
+          "aliasedName": "subject",
+          "type": "text",
+          "list": false,
+          "children": []
+        },
+        {
+          "name": "body",
+          "aliasedName": "body",
+          "type": "text",
+          "list": false,
+          "children": []
+        }
+      ]
+    }
+  ],
+  "fileName": "manifest.json",
+  "id": "c2704e62-fc69-4650-8d6b-57a9d132ab46",
+  "proxyId": "b80e7145-1ec6-4b1f-91c7-c4b2ddd1cab8"
+}
+

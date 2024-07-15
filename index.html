@@ -1,0 +1,116 @@
+<html lang="en" class="light">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="dist/css/app.css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+    </head>
+    <style>
+      html, body{
+        background-color: rgb(218, 218, 218);
+        background-image: url('images/2.jpg');
+        background-size: cover;
+      }
+      .bg-ws{
+        background-color: rgb(255 255 255);
+        padding: 0.5rem;
+        border-radius: 12px;
+      }
+      .w--30{
+        width: 30rem;
+      }
+      .select2-container--open .select2-dropdown--below {
+        width: 400px !important;
+      }
+      .select2-container--default .select2-selection--single {
+        height: 100%;
+      }
+      .input-group > .input-group-text:not(:first-child), .input-group > .form-control:not(:first-child) {
+        border-left-color: rgb(var(--color-slate-200));
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+      }
+      .hide {
+        animation: hideAnimation 0s forwards;
+        animation-delay: 5s;
+      }
+
+      @keyframes hideAnimation {
+        to {
+            opacity: 0;
+            visibility: hidden;
+        }
+      }
+      .alerted{
+        position: absolute;
+        top: 75%;
+        left: 75%;
+      }
+    </style>
+    <body class="py-5 p-7 ">
+      <div class="flex flex-col items-center">
+        <div class="bg-ws w--30 mt-5 intro-y box p-7">
+          <h1 class="text-2xl font-medium">Payment Request</h1>
+          <h1 class="mt-8 text-lg font-semibold">Contact Details</h1>
+          <div class=" mt-1">
+            <div class="preview p-2">
+              <label class="font-semibold text-md form-label">Send Payment Request to</label>
+              <select class="p-2 form-control mySelect w-full" id="users" name="users"></select>
+              <div class="mt-4 grid grid-cols-2">
+                <div class="p-2">
+                  <label class="form-label">Name</label>
+                  <input class="form-control w-full" placeholder="Please Enter Name" type="text" id="name" name="name" required>
+                </div>
+                <div class="p-2">
+                  <label class="form-label">Email</label>
+                  <input class="form-control w-full" type="email" placeholder="Please Enter Email" id="email" name="email" required>
+                </div>
+              </div>
+              <h1 class="mt-8 text-lg font-semibold">Request Details</h1>
+              <div class="mt-4 grid grid-cols-2">
+                <div class="p-2">
+                  <label class="form-label">Amount</label>
+                  <div class="input-group">
+                    <select class="p-2 w-16 form-control country py-2" id="country" name="country" required></select>
+                    <input type="text" class="form-control mx-2" id="Amount" placeholder="Amount" aria-describedby="input-group-3" required>
+                  </div>
+                </div>
+                <div class="p-2">
+                  <label class="form-label">Due date</label>
+                  <input class="form-control w-full" type="date" id="datepicker" name="datepicker" required>
+                  <h1 class="ml-2 mt-2" id="text"></h1>
+                </div>
+              </div>
+              <div class="mt-8">
+                <label class="font-semibold text-md form-label">Company name to show on request</label>
+                <select class="p-2 form-control company w-full" id="company" required>
+                  <option value="GWC">GWC</option>
+                  <option value="TCS">TCS</option>
+                  <option value="Infosys">Infosys</option>
+                </select>
+              </div>
+              <div class="mt-3">
+                <label class="form-label font-semibold text-md">Designation Account</label>
+                <select class="p-2 form-control Account w-full" id="Account" name="Account" required>
+                  <option value="hdfc">HDFC Bank</option>
+                  <option value="sbi">SBI Bank</option>
+                  <option value="icici">ICICI Bank</option>
+                </select>
+              </div>
+            </div>
+            <div class="text-end mt-10">
+              <button class="btn bg-pending text-white" id="send-email">Request Payment</button>
+            </div>
+          </div>
+        </div>
+        <div class="ml-auto flex-col-reverse alerted" id="alert"></div>
+      </div>
+
+      <script src="https://unpkg.com/ryuu.js"></script>
+      <script src="js/app.js"></script>
+      <!-- <script src="dist/js/app.js"></script> -->
+  </body>
+</html>
